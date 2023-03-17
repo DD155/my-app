@@ -1,0 +1,18 @@
+routing notes
+routes are file based in next.js
+use folders for nested routes
+
+
+**dynamic routing**
+(in homepage folder)
+create a file wrapped in [] for a dynamic route
+use object destructuring to get the info from useRouter().query
+
+**catch all routes**
+(in docs folder)
+A catch all route is used to have any number of nested routes at a base location. 
+
+Get the params through useRouter().query (returns an array)
+
+To have the base page as a default page for the catch all route, wrap the [...params] in another set of
+brackets e.g. [[...params]]
