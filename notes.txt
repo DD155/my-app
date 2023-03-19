@@ -16,3 +16,17 @@ Get the params through useRouter().query (returns an array)
 
 To have the base page as a default page for the catch all route, wrap the [...params] in another set of
 brackets e.g. [[...params]]
+
+** links **
+To create a link (<a></a>), import Link from next/link. Use the Link tag with the href as a prop
+Use for client-side routing only
+Use useRouter().push(link) to get to a location programatically
+
+
+**404 page**
+To create a custom 404 page, simply create a 404.tsx file in the pages directory
+------------------------------------------------------------------------------------------------------------
+
+
+
+
