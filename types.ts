@@ -1,12 +1,10 @@
-export interface User {
+export type UserType = {
+    id: string,
     name: string,
-    id: number
+    username: string,
+    phone: string,
 }
 
-export interface UserProp {
-    user: User
-}
-
-export interface UserDataProp {
-    users: User[]
+export type UserProp = {
+    user: UserType
 }

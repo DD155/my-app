@@ -3,8 +3,8 @@ import { UserProp } from "@/types"
 const User = ({user} : UserProp) => {
     return (
         <>
-            <p>{user.name}</p>
-            <p>{user.id}</p>
+            <h1>{user.name}</h1>
+            <p>{user.username} : {user.phone}</p>
         </>
     )
 }

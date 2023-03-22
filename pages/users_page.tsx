@@ -1,21 +1,15 @@
-import { GetStaticProps } from 'next'
 import User from '@/components/user'
-import { UserDataProp } from '@/types'
+import { UserType } from '@/types'
 import { InferGetStaticPropsType } from 'next'
-
-type User = {
-    id: string,
-    name: string
-}
 
 const UserList = ({data}:InferGetStaticPropsType<typeof getStaticProps>) => {
     console.log(data)
     return <>
         <h1> Users </h1>
-       {data.map((user:User) => {
+       {data.map((user:UserType) => {
             return (
                 <div key={user.id}>
-                    <h1> {user.name}</h1>
+                    <User user={user}/>
                 </div>
             )
        })}

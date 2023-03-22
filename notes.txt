@@ -28,5 +28,30 @@ To create a custom 404 page, simply create a 404.tsx file in the pages directory
 ------------------------------------------------------------------------------------------------------------
 pre-rendering
 
+**getStaticProps**
+use this to fetch data that is needed for pre-rendering. USE ONLY IN PAGES, NOT COMPONENTS
+stuff in here will not be client-side, only server-side. 
 
+when a page using getStaticProps is pre-rendered at build time, next.js makes a 
+HTML and JSON file of the fetched result
 
+create a function: const getStaticProps = async () => {
+
+}
+
+this must return some object, with the key 'props,' also an object, e.g. 
+return {
+    props: {
+        data
+    }
+}
+
+in the main render function of the page, add props as an argument
+example for typescript, the props will be as follows:
+
+import { InferGetStaticPropsType } from 'next'
+const examplePage = ({data}:InferGetStaticPropsType<typeof getStaticProps>) => {
+
+}
+
+you may need to create a new type for the data you are using. refer to *types.tsx* 
