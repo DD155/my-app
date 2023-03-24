@@ -46,6 +46,7 @@ return {
     }
 }
 
+
 in the main render function of the page, add props as an argument
 example for typescript, the props will be as follows:
 
@@ -54,4 +55,39 @@ const examplePage = ({data}:InferGetStaticPropsType<typeof getStaticProps>) => {
 
 }
 
+OR (the better way)
 you may need to create a new type for the data you are using. refer to *types.tsx* 
+
+const examplePage = ({data}:{data: {somePropertyOfData:dataType}}) => {
+
+}
+
+**getStaticPaths**
+
+if using a dynamic page with getStaticProps, use getStaticPaths
+
+return the paths as an object: 
+
+return {
+    paths: {
+
+    }
+}
+
+to get the paths dynamically (e.g. from an api) then: 
+
+const res = await fetch(api)
+const data = await res.json()
+
+return {
+    paths: data.map((results) => {
+        return {
+            params: {
+
+            }
+        }
+    })
+}
+
+inside the params, set the property that is being used to navigate to this page, such as an id; 
+get this from the results and make sure to set it as a string
