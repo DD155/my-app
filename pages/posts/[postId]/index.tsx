@@ -1,7 +1,6 @@
 import { NextRouter, useRouter } from "next/router"
 import { ParsedUrlQuery } from "querystring"
 import { Post } from "@/types"
-import { InferGetStaticPropsType } from "next"
 import Link from "next/link"
 
 interface Params extends ParsedUrlQuery {
@@ -9,8 +8,18 @@ interface Params extends ParsedUrlQuery {
 }
 
 const PageDetails = ({post}:{post: Post}) => {
-    //const router:NextRouter = useRouter()
+    const router:NextRouter = useRouter()
+
+    if (router.isFallback) {
+        return (
+            <>
+                <h1> Loading... </h1>
+            </>
+        )
+    }
     //const { postId }:string = router.query
+
+
 
     return <>
         <h1> Post {post.id}</h1>
@@ -34,7 +43,7 @@ export const getStaticPaths = async () => {
                 }
             }
         }),
-        fallback: false
+        fallback: true
     }
 }
 

@@ -91,3 +91,54 @@ return {
 
 inside the params, set the property that is being used to navigate to this page, such as an id; 
 get this from the results and make sure to set it as a string
+
+also make sure to include fallback, e.g.
+
+return {
+        paths: data.map((results) => {
+        return {
+            params: {
+
+            }
+        }
+        }),
+        fallback: false
+}
+
+when fallback = false, any path not returned by getStaticPath will bring you to a 404 page. useful
+for applications with not a lot of new paths being added or have a small number of paths to pre-render
+
+when fallback = true, the new page will be statically generated and will not bring you to a 404 page.
+instead it will go back to the fallback layout which is defined by:
+
+const router:NextRouter = useRouter()
+if (router.isFallback) {
+    return (
+        <>
+            
+        </>
+    )
+}
+
+useful for when the app has a lot of static pages that depend on data
+
+when fallback = 'blocking' this is similar to fallback = true, but there is no fallback page shown. 
+if the content can be generated quickly, this could be better than showing another page in between. 
+fallback = true is preferred, use blocking if it doesn't work
+
+**Incremental Static Regeneration (ISR)**
+Next.js lets you update statically generated pages to counter stale data without rebuilding the whole app
+note that you will need to refresh the page twice to see the updated data as it will give the cached
+page first while the regeneration is happening
+
+to do this, in getStaticProps, add the following (where seconds is a number):
+return {
+        props: {
+            posts: data.slice(0, 5)
+        },
+        revalidate: seconds
+}
+
+------------------------------------------------------------------------------------------------------------
+Server Side rendering
+
