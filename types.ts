@@ -15,3 +15,14 @@ export type Post = {
     title: string,
     body: string
 }
+
+export type Article = {
+    id: string,
+    title: string,
+    description: string,
+    category: string
+}
+
+export interface ArticlesProp {
+    articles: Article[]
+}

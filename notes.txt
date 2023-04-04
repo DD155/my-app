@@ -56,7 +56,7 @@ const examplePage = ({data}:InferGetStaticPropsType<typeof getStaticProps>) => {
 }
 
 OR (the better way)
-you may need to create a new type for the data you are using. refer to *types.tsx* 
+you may need to create a new type for the data you are using. refer to *types.tsx* and *news/category/* 
 
 const examplePage = ({data}:{data: {somePropertyOfData:dataType}}) => {
 
@@ -141,4 +141,14 @@ return {
 
 ------------------------------------------------------------------------------------------------------------
 Server Side rendering
+
+again, use this only in a page and not a component
+
+export const getServerSideProps = async () => { 
+    return {
+        props: {
+            key: data
+        }
+    }
+} 
 
