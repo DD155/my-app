@@ -18,5 +18,11 @@
             "description": "Desc 3",
             "category": "Sports" 
         }
-    ]
+    ],
+    "dashboard": {
+        "posts": 5,
+        "likes": 100,
+        "followers": 20,
+        "following": 50
+    }
 }
