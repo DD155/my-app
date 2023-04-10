@@ -1,5 +1,5 @@
 import { GetServerSideProps } from "next"
-import { Article } from "@/types"
+import { Article } from "../../types"
 
 const NewsPage = ({articles}:{articles:Article[]}) => {
     return (

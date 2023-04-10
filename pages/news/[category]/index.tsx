@@ -1,4 +1,4 @@
-import { Article } from "@/types"
+import { Article } from "../../../types"
 import { GetServerSidePropsContext } from "next"
 
 const CategoryPage = ({category, articles}:{category:string, articles:Article[]}) => {
@@ -24,7 +24,7 @@ export const getServerSideProps = async (/*{params}: {params: {category: string}
     const { req, res, query } = context
     const { params } = context
 
-    console.log(req.headers.cookie, query.category)
+    console.log(req.headers.cookie,)
     res.setHeader('Set-Cookie', ['status=healthy'])
     const result = await fetch("http://localhost:4000/news")
     const data = await result.json()

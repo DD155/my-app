@@ -1,4 +1,4 @@
-import { UserProp } from "@/types"
+import { UserProp } from "../types"
 
 const User = ({user} : UserProp) => {
     return (

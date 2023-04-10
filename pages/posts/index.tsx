@@ -1,5 +1,5 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next"
-import { Post } from "@/types"
+import { Post } from "../../types"
 import { NextRouter, useRouter } from "next/router"
 
 const PostList = ( {posts}:InferGetStaticPropsType<typeof getStaticProps> ) => {

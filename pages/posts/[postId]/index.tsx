@@ -1,6 +1,6 @@
 import { NextRouter, useRouter } from "next/router"
 import { ParsedUrlQuery } from "querystring"
-import { Post } from "@/types"
+import { Post } from "../../../types"
 import Link from "next/link"
 
 interface Params extends ParsedUrlQuery {

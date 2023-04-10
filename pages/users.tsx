@@ -1,5 +1,5 @@
-import User from '@/components/user'
-import { UserType } from '@/types'
+import User from '../components/user'
+import { UserType } from '../types'
 import { InferGetStaticPropsType } from 'next'
 
 const UserList = ({data}:InferGetStaticPropsType<typeof getStaticProps>) => {
